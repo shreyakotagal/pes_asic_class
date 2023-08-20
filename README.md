@@ -32,9 +32,12 @@ int main()
 }
 
 ```
-**using the gcc compiler**
+**Using the gcc compiler**
 
-**using RISC-V complier**
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/1d1ffe1c-22e4-441b-bb2d-f98698f689e0)
+
+
+**Using RISC-V complier**
 
 Initially the command 
 ``` riscv64-unknown-elf-gcc -O1 -march=rv64i -mabi=lp64 -o sum1ton.o sum1ton.c ``` threw an error 
