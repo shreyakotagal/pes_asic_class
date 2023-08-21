@@ -121,6 +121,10 @@ int main()
 }
 
 ```
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/5c85970f-cd82-41c2-b819-2a3e9339f252)
+
+
 **Signed 64-bit Number**
 
 ```
@@ -136,6 +140,10 @@ int main()
 	return 0;
 }
 ```
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/eeaef59e-239f-4c23-a654-bef97e5127d8)
+
+
 # DAY 2
 
 ## Application Binary Interface (ABI) Overview
@@ -252,8 +260,9 @@ add a4, a3, a4
 addi a3, a3, 1
 blt a3, a2, loop
 add a0, a4, zero
-ret
+ret;
 ```
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/ff565dcb-9b6f-4c01-8fc3-32ecdcde4146)
 
 
 
