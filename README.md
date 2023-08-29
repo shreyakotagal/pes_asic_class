@@ -422,6 +422,85 @@ Tclk formula:
 
 </details>
 
+# DAY 4
+
+<details>
+<summary> Timing libs, hierarchical vs flat synthesis and efficient flop coding styles </summary>
+<details>
+<summary> Introduction to timing .libs </summary>
+	
+* Open the .lib file  ``` sky138_fd_sc_hd_tt_025C_1v80.lib ```
+  
+* to turn of the red colour highlights use ``` :syn off ```
+  
+* Each library has P(process) V(voltage) T(temperature) are very important for a design to work
+	* Process- variations due to fabrication
+	* Voltage- variations of the circuit due to change in voltage
+	* Temperature- variations due to temperature as semiconductors are very sensitive to temperature
+   
+* tt_025C_1v80 indicates a typical process, 025C indicates the temperature and 1v80 indicates the voltage
+  
+* This particular .lib file has a cmos technology and lookup table delay model
+* Units and operating conditions are also mentioned
+* It gives the features of the cells
+* To enable line number : ``` se nu ```
+* To view all the cells : ``` g// ```
+* To view any instance : ``` /instance ``` 
+* Since there are 5 inputs, for all the 32 possible combinations, it gives the delay, power and all the other parameters for each cell.
+	
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/4dd5aadc-3c1c-4939-b6eb-7dcecc933942)
+
+Power, Timings and Area analysis of the different AND Gates
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/73e1ad4b-1960-45fe-aeac-603a1fd2a130)
+</details>
+<details> 
+<summary> Hierarchical vs Flat Synthesis </summary>
+
+Hierarchical Synthesis:
+
+* Hierarchical synthesis is an approach in digital design and logic synthesis where complex designs are broken down into smaller, more manageable modules or sub-circuits, and each module is synthesized individually.
+* These synthesized modules are then integrated back into the overall design hierarchy.
+* This approach helps manage the complexity of large designs and allows designers to work on different parts of the design independently.
+
+* We use the module:  ``` multiple_modules.v ``` which lies in  ``` verilog_files ```
+
+* Multiple_modules instantiates ``` sub_module1 ```  and ```  sub_module2 ```
+* Launch yosys
+* Read the library file ``` read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib ``` 
+* Read the verilog file ``` read_verilog multiple_modules.v ```
+*  ``` synth -top multiple_modules to set it as top module ```
+*  ``` abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib ```
+*  To view the netlist ``` show multiple_modules ```
+*  ``` write_verilog -noattr multiple_modules_hier.v ```
+*  ``` !gvim multiple_modules_hier.v ```
+
+Attached below is the execution of all the above commands
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/f4551302-8aaa-4089-8c3e-f80a24a22110)
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/7484fca6-76e9-451e-8c52-9d4eb8de61b8)
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/d82c4fae-1c76-4ead-a5cc-a2cb0ace7d4b)
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/09111632-74f7-48b0-b6a9-06b8844f138b)
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/fdfcf8e7-6df5-4a0d-8ad3-5916a6c14c41)
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/2ca8339b-ab5e-4d86-aca3-72300855ea37)
+
+For flatten 
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/4839fc3f-b450-4125-9502-5433a7b7630e)
+
+ ![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/aa8f383f-4f36-4d4f-aeb2-6462eb8af3ba)
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/5b20d9fb-f234-4b84-babe-45c120d53951)
+
+
+</details>
+
+</details>
 
 
 
@@ -435,5 +514,5 @@ Tclk formula:
 
 
 
-</details> 
+
 
