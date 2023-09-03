@@ -424,8 +424,8 @@ Tclk formula:
 
 # DAY 4
 
-<details>
-<summary> Timing libs, hierarchical vs flat synthesis and efficient flop coding styles </summary>
+**Timing libs, hierarchical vs flat synthesis and efficient flop coding styles**
+
 <details>
 <summary> Introduction to timing .libs </summary>
 	
@@ -499,20 +499,427 @@ For flatten
 
 
 </details>
+<details>
+
+<summary> Various Flop Coding Styles and optimization </summary>
+
+<details> 
+<summary> Why do we need a Flop? </summary>
+
+* A flip-flop (often abbreviated as "flop") is a fundamental building block in digital circuit design.
+* It's a type of sequential logic element that stores binary information (0 or 1) and can change its output based on clock signals and input values.
+* In a combinational circuit, the output changes after the propagation delay of the circuit once inputs are changed.
+* During the propagation of data, if there are different paths with different propagation delays, then a glitch might occur.
+* There will be multiple glitches for multiple combinational circuits.
+* Hence, we need flops to store the data from the combinational circuits.
+* When a flop is used, the output of combinational circuit is stored in it and it is propagated only at the posedge or negedge of the clock so that the next combinational circuit gets a glitch free input thereby stabilising the output.
+* We use control pins like set and reset to initialise the flops.
+* They can be synchronous and asynchronous.
+
+**D Flip-Flop with Asynchronous Reset**
+
+When the reset is high, the output of the flip-flop is forced to 0, irrespective of the clock signal.
+Else, on the positive edge of the clock, the stored value is updated at the output.
+
+``` gvim dff_asyncres_syncres.v```
+
+**D Flip_Flop with Asynchronous Set**
+
+When the set is high, the output of the flip-flop is forced to 1, irrespective of the clock signal.
+Else, on positive edge of the clock, the stored value is updated at the output.
+
+``` gvim dff_async_set.v ```
+
+
+**D Flip-Flop with Synchronous Reset**
+
+When the reset is high on the positive edge of the clock, the output of the flip-flop is forced to 0.
+Else, on the positive edge of the clock, the stored value is updated at the output.
+
+``` gvim dff_syncres.v ```
+
+**D Flip-Flop with Asynchronous Reset and Synchronous Reset**
+
+When the asynchronous resest is high, the output is forced to 0.
+When the synchronous reset is high at the positive edge of the clock, the output is forced to 0.
+Else, on the positive edge of the clock, the stored value is updated at the output.
+Here, it is a combination of both synchronous and asynchronous reset DFF.
+
+``` gvim dff_asyncres_syncres.v ```
+</details>
+
+<details>
+<summary> Lab Flop Synthesis Simulations </summary>
+
+**D Flip-Flop with Asynchronous Reset**
+
+* **Simulation**
+```
+cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+iverilog dff_asyncres.v tb_dff_asyncres.v
+./a.out
+gtkwave tb_dff_asyncres.vcd
+```
+
+* **Synthesis**
+```
+cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog dff_asyncres.v
+synth -top dff_asyncres
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+```
+
+
+**D Flip_Flop with Asynchronous Set**
+
+* **Simulation**
+```
+cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+iverilog dff_async_set.v tb_dff_async_set.v
+./a.out
+gtkwave tb_dff_async_set.vcd
+```
+
+* **Synthesis**
+```
+cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog dff_async_set.v
+synth -top dff_async_set
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+```
+
+**D Flip-Flop with Synchronous Reset**
+
+* **Simulation**
+```
+cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+iverilog dff_syncres.v tb_dff_syncres.v
+./a.out
+gtkwave tb_dff_syncres.vcd
+```
+
+* **Synthesis**
+```
+cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog dff_syncres.v
+synth -top dff_syncres
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+```
+</details>
+<details>
+<summary> Interesting Optimisations </summary>
+
+```
+gvim mult_2.v
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog mult_2.v
+synth -top mul2
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+```
+```
+write_verilog -noattr mul2_netlist.v
+!gvim mul2_netlist.v
+```
+```
+gvim mult_8.v
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib  
+read_verilog mult_8.v
+synth -top mult8
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+```
+```
+write_verilog -noattr mult8_netlist.v
+!gvim mult8_netlist.v
+```
+</details>
+</details>
+
+# Day 5
+
+**Combinational and sequential optmizations**
+
+<details>
+
+<summary> Introduction to optimisation </summary>
+<details> 
+<summary> Combinational Optimisation </summary>
+
+* Combinational logic refers to logic circuits where the outputs depend only on the current inputs and not on any previous states.
+* Combinational optimization is a field of study in computer science and operations research that focuses on finding the best possible solution from a finite set of options for problems that involve discrete variables and have no inherent notion of time.
+* Optimising the combinational logic circuit is squeezing the logic to get the most optimized digital design so that the circuit finally is area and power efficient.
+Techniques for Optimisations:
+* Constant propagation is an optimization technique used in compiler design and digital circuit synthesis to improve the efficiency of code and circuit implementations by replacing variables or expressions with their constant values where applicable.
+* Boolean logic optimization, also known as logic minimization or Boolean function simplification, is a process in digital design that aims to simplify Boolean expressions or logic circuits by reducing the number of terms, literals, and gates required to implement a given logical function.
+</details>
+
+<details> 
+<summary> Sequential Logic Optimisations </summary>
+
+* Sequential logic optimizations involve improving the efficiency, performance, and resource utilization of digital circuits that include memory elements like flip-flops and latches.
+* Optimizing sequential logic is crucial in ensuring that digital circuits meet timing requirements, consume minimal power, and occupy the least possible area while maintaining correct functionality.
+Optimisation methods:
+* Sequential constant propagation, also known as constant propagation across sequential elements, is an optimization technique used in digital design to identify and propagate constant values through sequential logic elements like flip-flops and registers. This technique aims to replace variable values with their known constant values at various stages of the logic circuit, optimizing the design for better performance and resource utilization.
+* State optimization, also known as state minimization or state reduction, is an optimization technique used in digital design to reduce the number of states in finite state machines (FSMs) while preserving the original functionality.
+* Sequential logic cloning, also known as retiming-based cloning or register cloning, is a technique used in digital design to improve the performance of a circuit by duplicating or cloning existing registers (flip-flops) and introducing additional pipeline stages.
+* This technique aims to balance the critical paths within a circuit and reduce its overall clock period, leading to improved timing performance and better overall efficiency.
+* Retiming is an optimization technique used in digital design to improve the performance of a circuit by repositioning registers (flip-flops) along its paths to balance the timing and reduce the critical path delay.
+* The primary goal of retiming is to achieve a shorter clock period without changing the functionality of the circuit.
+</details>
+</details>
+
+<details>
+<summary> Combinational Logic Optimisations </summary>
+<details> 
+<summary> opt_check </summary>
+	
+```
+gvim opt_check.v
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog opt_check.v
+synth -top opt_check
+opt_clean -purge
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+```
+
+</details>
+<details>
+<summary> opt_check2 </summary>
+
+```
+gvim opt_check2.v
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog opt_check2.v
+synth -top opt_check2
+opt_clean -purge
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+```
 
 </details>
 
+<details> 
+<summary> opt_check3 </summary>
 
+```
+gvim opt_check3.v
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog opt_check3.v
+synth -top opt_check3
+opt_clean -purge
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+```
 
+</details>
 
+<details>
 
+<summary> opt_check4 </summary>
 
+```
+gvim opt_check4.v
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog opt_check4.v
+synth -top opt_check4
+opt_clean -purge
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+```
 
+</details>
 
+<details>
+<summary> multiple_module_opt </summary>
 
+```
+gvim multiple_module_opt.v
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog multiple_module_opt.v
+synth -top multiple_module_opt
+opt_clean -purge
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+```
+</details>
+</details>
 
+<details>
+<summary>  Sequential Logic Optimisations </summary>
+<details>
+<summary> dff_const1 </summary>
 
+``` gvim dff_const1.v ```
 
+**Simulation**
 
+```
+iverilog dff_const1.v tb_dff_const1.v
+/a.out
+gtkwave tb_dff_const1.vcd
+```
 
+**Synthesis**
+
+```
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog dff_const1.v
+synth -top dff_const1
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+```
+
+</details>
+<details>
+<summary> dff_const2  </summary>
+
+``` gvim dff_const2.v ```
+
+**Simulation**
+
+```
+iverilog dff_const2.v tb_dff_const2.v
+/a.out
+gtkwave tb_dff_const2.vcd
+```
+
+**Synthesis**
+
+```
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog dff_const2.v
+synth -top dff_const2
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+```
+
+</details>
+<details>
+<summary> dff_const3 </summary>
+
+``` gvim dff_const3.v```
+
+**Simulation**
+
+```
+iverilog dff_const3.v tb_dff_const3.v
+/a.out
+gtkwave tb_dff_const3.vcd
+```
+
+**Synthesis**
+
+```
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog dff_const3.v
+synth -top dff_const3
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+```
+
+</details>
+
+<details>
+<summary> dff_const4 </summary>
+
+	
+ ``` gvim dff_const4.v ```
+
+**Simulation**
+
+```
+iverilog dff_const4.v tb_dff_const4.v
+/a.out
+gtkwave tb_dff_const4.vcd
+```
+
+**Synthesis**
+
+```
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog dff_const4.v
+synth -top dff_const4
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+```
+
+</details>
+<details>
+<summary> dff_const5 </summary>
+
+``` gvim dff_const5.v ```
+
+**Simulation**
+
+```
+iverilog dff_const4.v tb_dff_const4.v
+/a.out
+gtkwave tb_dff_const4.vcd
+```
+
+**Synthesis**
+
+```
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog dff_const4.v
+synth -top dff_const4
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+```
+
+</details>
+</details>
+
+<details>
+<summary> Sequential Optimisations for Unused Outputs </summary>
+
+<details>
+<summary> counter_opt </summary>
+
+```
+gvim counter_opt.v
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog counter_opt.v
+synth -top counter_opt
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+```
+
+</details>
+
+<details>
+<summary> counter_opt2 </summary>
+
+```
+gvim counter_opt2.v
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog counter_opt2.v
+synth -top counter_opt2
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+```
+
+</details>
+</details>
 
