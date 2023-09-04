@@ -806,6 +806,9 @@ show
 
 ``` gvim dff_const1.v ```
 
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/a75d13f3-e04c-46d4-8a2c-f67ab681ba2b)
+
+
 **Simulation**
 
 ```
@@ -813,6 +816,7 @@ iverilog dff_const1.v tb_dff_const1.v
 /a.out
 gtkwave tb_dff_const1.vcd
 ```
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/20cb0b16-2acb-4899-a446-d02f69a4f39c)
 
 **Synthesis**
 
@@ -824,12 +828,18 @@ dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/5d06311d-3297-4c44-b89a-a7bebe32d9f8
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/0792b02e-08ec-4d0e-84a5-4de06ba28af8)
+
 
 </details>
 <details>
 <summary> dff_const2  </summary>
 
 ``` gvim dff_const2.v ```
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/2b3d59a7-37b1-4fd7-867c-f8b22e63f846)
+
 
 **Simulation**
 
@@ -838,6 +848,7 @@ iverilog dff_const2.v tb_dff_const2.v
 /a.out
 gtkwave tb_dff_const2.vcd
 ```
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/437b8d83-0315-4c77-9bc5-867a6c38d8fb)
 
 **Synthesis**
 
@@ -849,12 +860,18 @@ dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/094b97ab-71d2-462c-85a3-fae4840f9aab)
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/2b36e9a7-56d9-48cc-8303-b8e141512bed)
+
 
 </details>
 <details>
 <summary> dff_const3 </summary>
 
 ``` gvim dff_const3.v```
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/3e530002-518b-4ace-bffa-c7da9e593d74)
 
 **Simulation**
 
@@ -863,6 +880,9 @@ iverilog dff_const3.v tb_dff_const3.v
 /a.out
 gtkwave tb_dff_const3.vcd
 ```
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/96e4eb6a-80f0-4c26-a011-bf6c4a80a459)
+
 
 **Synthesis**
 
@@ -874,14 +894,18 @@ dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/b2bf8a0b-2cca-475e-b870-c901462c5caf)
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/226f1e5d-fa71-4040-952a-857e0b905830)
 
 </details>
 
 <details>
 <summary> dff_const4 </summary>
-
 	
  ``` gvim dff_const4.v ```
+ 
+ ![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/b13e4c2f-8efe-4de7-82a0-37f00be3abe2)
 
 **Simulation**
 
@@ -890,6 +914,9 @@ iverilog dff_const4.v tb_dff_const4.v
 /a.out
 gtkwave tb_dff_const4.vcd
 ```
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/33050a53-ec7e-44fe-8fc6-fdb47fc3b55f)
+
 
 **Synthesis**
 
@@ -901,6 +928,9 @@ dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/f4bb1865-6520-4a0d-a839-4fdc2c614998)
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/a2943511-26e4-4d13-bcb2-edf3ae2b58ce)
 
 </details>
 <details>
@@ -908,24 +938,29 @@ show
 
 ``` gvim dff_const5.v ```
 
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/aedb5ffa-578d-4697-976e-bb787ae3c04e)
+
 **Simulation**
 
 ```
-iverilog dff_const4.v tb_dff_const4.v
+iverilog dff_const5.v tb_dff_const4.v
 /a.out
-gtkwave tb_dff_const4.vcd
+gtkwave tb_dff_const5.vcd
 ```
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/166756a8-3973-4cac-a8f7-ec5e755549a6)
 
 **Synthesis**
 
 ```
 read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-read_verilog dff_const4.v
-synth -top dff_const4
+read_verilog dff_const5.v
+synth -top dff_const5
 dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/30ae8384-0fb8-410e-9ca1-c9fff0e38e2b)
 
 </details>
 </details>
@@ -945,6 +980,10 @@ dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/c5489e96-b88b-49d6-a1ca-168e81b83109)
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/c11e5711-c7ce-4087-a335-cb2095128fb8)
+
 
 </details>
 
@@ -960,6 +999,9 @@ dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/f27144db-4c46-47f6-9a1a-6848801ebba4)
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/bacf5cb0-71b9-422f-8d58-f698b6fd44a7)
 
 </details>
 </details>
@@ -1048,6 +1090,8 @@ endmodule
 	
 ``` gvim teranry_operator_mux.v ```
 
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/be3adf6c-62ca-457e-bb09-3d34c7ea4430)
+
 **Simulation**
 
 ```
@@ -1055,6 +1099,7 @@ iverilog ternary_operator_mux.v tb_ternary_operator_mux.v
 ./a.out
 gtkwave tb_ternary_operator_mux.vcd
 ```
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/1cb0aa50-be49-450b-ba9f-547e0f46b1ff)
 
 **Synthesis**
 ```
@@ -1064,6 +1109,8 @@ synth -top ternary_operator_mux
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/6e7ce874-a223-4a2b-a625-596215a77620)
+
 
 **GLS to Gate-Level Simulation**
 ```
@@ -1071,32 +1118,45 @@ iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_
 ./a.out
 gtkwave tb_bad_mux.vcd
 ```
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/5b52a091-20fa-4d65-a005-2a055987dc55)
+
 </details>
 <details>
 <summary> bad_mux </summary>
 	
 ``` gvim bad_mux.v ```
-	
+
+ ![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/ad834a15-db01-45fa-b514-75683bf6d402)
+
 **Simualtion**
 ```
 iverilog bad_mux.v tb_bad_mux.v
 ./a.out
 gtkwave tb_bad_mux.vcd
 ```
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/2d920779-eb29-45b7-ab28-01f874a973f5)
+
 **Synthesis**
 ```
 read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 read_verilog bad_mux.v
 synth -top bad_mux
-abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C
+_1v80.lib
 show
 ```
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/6920477c-ec32-45a6-bc5d-e5d9f325e480)
+
 **GLS to Gate-Level Simulation**
 ```
 iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v bad_mux_net.v tb_bad_mux.v
 ./a.out
 gtkwave tb_bad_mux.vcd
 ```
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/65a60931-ae3e-4a6d-a6a7-164b54d4f012)
+
 </details>
 </details>
 <details>
@@ -1106,12 +1166,16 @@ gtkwave tb_bad_mux.vcd
 
 ``` gvim blocking_caveat.v ```
 
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/f4c60b8c-8d4e-46cf-a28f-9252b5cf64c5)
+
 **Simualtion**
 ```
 iverilog blocking_caveat.v tb_blocking_caveat.v
 ./a.out
 gtkwave tb_blocking_caveat.vcd
 ```
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/daaeee50-0faf-4bc2-bcaf-bc6b355a8bfb)
 
 **Synthesis**
 ```
@@ -1121,6 +1185,9 @@ synth -top blocking_caveat
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/c21cec82-1764-44f8-aec6-349ee228ebd9)
+
 **GLS to Gate-Level Simulation**
 
 ```
@@ -1128,6 +1195,8 @@ iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_
 ./a.out
 gtkwave tb_blocking_caveat.vcd
 ```
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/f7a131ba-7d2d-4123-b775-d89568d85036)
 
 </details>
 </details>
