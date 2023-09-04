@@ -629,10 +629,19 @@ synth -top mul2
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/8e93ea0b-510d-4d34-90b6-b910c5cd93b3)
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/8805f00b-1e66-4825-972e-e8691e113ff8)
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/fe0741fa-4e1b-4f8a-99da-b10690cdf20f)
+
 ```
 write_verilog -noattr mul2_netlist.v
 !gvim mul2_netlist.v
 ```
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/f1750f37-aee4-4004-804e-ba7239fcd68e)
+
 ```
 gvim mult_8.v
 read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib  
@@ -641,10 +650,18 @@ synth -top mult8
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/47c3508d-cc59-48b1-a49b-348c7ac3c31b)
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/855954d7-33f0-45bb-89f9-5d669fc88b39)
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/6f3df8f1-f777-41c0-97ab-9673e8f25510)
+
 ```
 write_verilog -noattr mult8_netlist.v
 !gvim mult8_netlist.v
 ```
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/2a36c6d0-eb64-4c2b-9661-8246518598bd)
+
 </details>
 </details>
 
@@ -695,6 +712,9 @@ opt_clean -purge
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/d7944d20-caf9-4c00-ac62-24810fe955a3)
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/b06b0c1e-a0ee-474e-bab7-5dbb07e9290f)
 
 </details>
 <details>
@@ -709,6 +729,11 @@ opt_clean -purge
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/63e07d1d-ea8b-4a7a-b4dd-f097a31c2d17)
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/5cd416e4-7bff-4059-b632-b692bbf3b64d)
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/686f23d4-5f66-4aca-b1f8-d78fe0ee61fe)
 
 </details>
 
@@ -724,6 +749,11 @@ opt_clean -purge
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/1e8e2201-4386-4850-81ac-823d3ca924d9)
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/7017ef02-ce7f-49c4-8203-bd4d34e5c490)
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/1a225c02-4601-4680-bfb8-13efd0f213b4)
 
 </details>
 
@@ -740,6 +770,11 @@ opt_clean -purge
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/8f39cffe-3f89-497f-9734-eac7eb061ab6)
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/32a119df-91b0-44dd-8c30-ef3f24f63a7b)
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/a4831e57-a1a2-4778-b335-2439bc7343ea)
 
 </details>
 
@@ -755,6 +790,12 @@ opt_clean -purge
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/427f1a77-1961-4409-9f56-2826c51412af)
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/b5887953-9419-490f-b666-bee42fac2913)
+
+![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/e81392dd-f28b-4867-8108-5df4bd32276c)
+
 </details>
 </details>
 
