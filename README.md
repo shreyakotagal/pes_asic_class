@@ -301,6 +301,7 @@ ret;
 <summary> Introduction to open-source simulator iverilog </summary>
 	
 Simulator
+
 • RTL design is checked for adherence to the spec by simulating the design
 • Simulator is the tool used for simulating the design
 	• iverilog is the tool used for this course
