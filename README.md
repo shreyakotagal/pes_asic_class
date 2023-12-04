@@ -302,18 +302,19 @@ ret;
 	
 Simulator
 
-• RTL design is checked for adherence to the spec by simulating the design
-• Simulator is the tool used for simulating the design
-	• iverilog is the tool used for this course
+* RTL design is checked for adherence to the spec by simulating the design
+* Simulator is the tool used for simulating the design
+	* iverilog is the tool used for this course
 Design
-• Design is the actual Verilog code or set of Verilog codes which has the intended functionality to meet with the required specifications
+
+* Design is the actual Verilog code or set of Verilog codes which has the intended functionality to meet with the required specifications
 TestBench
-• TestBench is the setup to apply stimulus (test_vectors) to the design to check its functionality
+* TestBench is the setup to apply stimulus (test_vectors) to the design to check its functionality
 How simulator works
-• Simulator looks for the changes on the input signals
-• Upon change to the input the output is evaluated
-• If no change to the input, no change to the output
-• Simulator is looking for change in the values of input
+* Simulator looks for the changes on the input signals
+* Upon change to the input the output is evaluated
+* If no change to the input, no change to the output
+* Simulator is looking for change in the values of input
 	
 ![image](https://github.com/shreyakotagal/pes_asic_class/assets/117657204/90f17c32-d553-4df6-b945-ce28f062b14d)
 	
